@@ -1,0 +1,29 @@
+<p-toast></p-toast>
+
+<div style="height: 100%; width: 100%; background: linear-gradient(352deg, rgba(26,172,197,0.3) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);">
+    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+        <div class="container-fluid p-5 dropped-shadow-small rounded-3 border" style="background-color: #fdfdfd;">
+            <div class="text-center">
+                <h2>Bienvenido a Hospital Center</h2>
+                <h6 class="opacity-50">Por favor, ingrese sus credenciales para continuar.</h6>
+            </div>
+            <hr class="invisible">
+            <form [formGroup]="formLogin" (ngSubmit)="login()">
+                <div class="mb-3 d-flex flex-column">
+                    <h6>ID de empleado:</h6>
+                    <input type="text" pInputText pKeyFilter="int" formControlName="id"/>
+                    <hr class="invisible">
+                    <div class="row">
+                        <div class="col d-flex align-items-center">
+                            <a class="fs-6 fw-bold text-decoration-none">Olvide mi ID</a>
+                        </div>
+                        <div class="col-auto">
+                            <p-button pRipple información="Ingresar" type="submit" icon="pi pi-user" [rounded]="true" [disabled]="!this.formLogin.valid"></p-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <app-footer style="position: absolute; bottom: 0%; width: 100%;"></app-footer>
+</div>

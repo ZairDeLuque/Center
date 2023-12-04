@@ -1,0 +1,30 @@
+<app-navbar class="sticky-top dropped-shadow"></app-navbar>
+
+<div class="container mt-4">
+    <div class="dropped-shadow rounded-3">
+        <div class="p-3">
+            <h5>Lista de empleados:</h5>
+            
+            <div class="d-flex gap-4 flex-wrap mt-4">
+                @for (packet of donativos; track packet) {
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="card-title">{{packet.donante.toUpperCase()}}</h4>
+                                </div>
+                                <div class="col d-flex align-items-center justify-content-end">
+                                    <p class="card-text">Donativo: {{packet.tipo.toUpperCase()}}</p>
+                                </div>
+                            </div>
+                            <p>Fecha de donativo: {{packet.fecha_donacion | date: 'yyyy-MM-dd'}}</p>
+                            <p>Pagado: {{packet.valor | currency: 'MXN'}}</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

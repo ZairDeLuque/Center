@@ -1,0 +1,31 @@
+<app-navbar class="sticky-top dropped-shadow"></app-navbar>
+
+<div class="container mt-4">
+    <div class="dropped-shadow rounded-3">
+        <div class="p-3">
+            <h5>Lista de empleados:</h5>
+            <p-table [value]="data1" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Numero de Identificación</th>
+                        <th>Nombre del medico</th>
+                        <th>Edad</th>
+                        <th>Area</th>
+                        <th>Especialidad</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.idmedicos }}</td>
+                        <td>{{ product.nombre_medico.toUpperCase() }} {{product.apellidos_medico.toUpperCase()}}</td>
+                        <td>{{ product.edad_medico }}</td>
+                        <td>{{ product.area.toUpperCase() }}</td>
+                        <td>{{ product.especialidad.toUpperCase() }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,27 @@
+<app-navbar class="sticky-top dropped-shadow"></app-navbar>
+
+<div class="container mt-4">
+    <div class="dropped-shadow rounded-3">
+        <div class="p-3">
+            <h5>Lista de procedimientos aceptados:</h5>
+            <p-table [value]="data1" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Indicaciones</th>
+                        <th>Resultados esperados</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.nombre_procedimiento.toUpperCase() }}</td>
+                        <td>{{ product.indicaciones.toUpperCase() }}</td>
+                        <td>{{ product.resultados.toUpperCase() }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

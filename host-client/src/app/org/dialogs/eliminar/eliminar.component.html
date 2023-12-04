@@ -1,0 +1,13 @@
+<div class="container-fluid p-0">
+    <h5>¿Estas seguro de eliminar este paciente?</h5>
+    <p class="opacity-75">Significa la perdida definitiva de datos.</p>
+
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <p-button severity="success" [text]="true" type="success" (onClick)="this.ref.close({deleted: false})" label="Cancelar"></p-button>
+        </div>
+        <div class="col-auto">
+            <p-button severity="success" icon="pi pi-trash" (onClick)="delete()" label="Eliminar"></p-button>
+        </div>
+    </div>
+</div>

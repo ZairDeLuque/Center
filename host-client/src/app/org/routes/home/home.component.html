@@ -1,0 +1,86 @@
+<app-navbar class="sticky-top dropped-shadow"></app-navbar>
+
+<div class="container mt-4">
+    <div class="dropped-shadow rounded-3" style="max-height: 21.7rem; overflow-y: scroll;">
+        <div class="w-100 sticky-top h-100 p-3 border rounded-3" style="background-color: #ffffff05; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); user-select: none;">
+            <h5>Lista de pacientes:</h5>
+        </div>
+        <div class="p-3">
+            <p-table [value]="data1" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.idpacientes }}</td>
+                        <td>{{ product.nombre_pacientes.toUpperCase() }}</td>
+                        <td>{{ product.apellidos_paciente.toUpperCase() }}</td>
+                        <td>{{ product.edad_paciente }}</td>
+                        <td>
+                            <div class="d-flex gap-4">
+                                <p-button severity="warning" pTooltip="Editar información" icon="pi pi-pencil" (onClick)="editar(product.idpacientes)"></p-button>
+                                <p-button severity="danger" pTooltip="Borrar información" icon="pi pi-delete-left" (onClick)="eliminar(product.idpacientes)"></p-button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <div class="dropped-shadow rounded-3 mt-5 p-4" style="max-height: 30rem; overflow-y: scroll;">
+        <div class="d-flex gap-2">
+            <div class="card w-100">
+                <div class="card-body">
+                    <h5>Presupuestos totales:</h5>
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex gap-3 align-items-center w-auto d-inline-block p-2 rounded-2" style="background-color: #d0e1fd; color: #2d6df6;">
+                            <i class="pi pi-chart-line"></i>
+                            <h2 class="text-end mb-0">{{data2.length}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card w-100">
+                <div class="card-body">
+                    <h5>Ingresos totales:</h5>
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex gap-3 align-items-center w-auto d-inline-block p-2 rounded-2" style="background-color: #feddc7; color: #f96527;">
+                            <i class="pi pi-dollar"></i>
+                            <h2 class="text-end mb-0">{{stats3 | currency: 'MXN'}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p-table [value]="data2" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Año</th>
+                    <th>Mes</th>
+                    <th>Departamento</th>
+                    <th>Categoría</th>
+                    <th>Cantidad</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{ product['año'] }}</td>
+                    <td>{{ product.mes }}</td>
+                    <td>{{ product.departamento.toUpperCase() }}</td>
+                    <td>{{ product.categoria.toUpperCase() }}</td>
+                    <td>{{product.monto | currency: 'MXN' }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<app-footer></app-footer>
